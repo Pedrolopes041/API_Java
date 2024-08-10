@@ -1,14 +1,16 @@
 package com.events.api.domain.event;
+
 import com.events.api.domain.user.User;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Table(name = "events", schema = "EVENTS")
@@ -27,7 +29,13 @@ public class Event {
     private Date date_start;
     private Date date_end;
 
-    @ManyToOne
-    @JoinColumn(name = "users_id")
-    private User user;
+    @ManyToMany
+    @JoinTable(
+            name = "event_user",
+            schema = "EVENTS",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    @JsonManagedReference
+    private Set<User> users = new HashSet<>();
 }

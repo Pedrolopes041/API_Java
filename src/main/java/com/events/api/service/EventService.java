@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -28,5 +30,52 @@ public class EventService {
         event.setDate_end(new Date(data.date_end()));
 
         return eventRepository.save(event);
+    }
+
+    public Event addUserToEvent(UUID eventId, UUID userId) {
+        Optional<Event> eventOpt = eventRepository.findById(eventId);
+        Optional<User> userOpt = userRepository.findById(userId);
+
+        if (eventOpt.isPresent() && userOpt.isPresent()) {
+            Event event = eventOpt.get();
+            User user = userOpt.get();
+
+            // Verifica se o usuário já está no evento antes de adicionar
+            if (!event.getUsers().contains(user)) {
+                event.getUsers().add(user);
+            }
+
+            return eventRepository.save(event);
+        }
+
+        throw new RuntimeException("Evento ou Usuário não encontrado!");
+    }
+
+    public Set<User> listUsersInEvent(UUID eventId) {
+        Optional<Event> eventOpt = eventRepository.findById(eventId);
+
+        if (eventOpt.isPresent()) {
+            return eventOpt.get().getUsers();
+        }
+
+        throw new RuntimeException("Evento não encontrado!");
+    }
+
+    public void removeUserFromEvent(UUID eventId, UUID userId) {
+        Optional<Event> eventOptional = eventRepository.findById(eventId);
+        Optional<User> userOptional = userRepository.findById(userId);
+
+        if (eventOptional.isPresent() && userOptional.isPresent()) {
+            Event event = eventOptional.get();
+            User user = userOptional.get();
+
+            event.getUsers().remove(user);
+            user.getEventos().remove(event);
+
+            eventRepository.save(event);
+            userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("Event or User not found");
+        }
     }
 }
