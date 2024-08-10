@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-@Table(name = "events", schema = "EVENTS")
+@Table(name = "events")
 @Entity
 @Setter
 @Getter
@@ -32,7 +32,6 @@ public class Event {
     @ManyToMany
     @JoinTable(
             name = "event_user",
-            schema = "EVENTS",
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )

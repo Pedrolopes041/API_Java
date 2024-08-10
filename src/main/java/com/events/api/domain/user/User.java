@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-@Table(name = "users", schema = "EVENTS")
+@Table(name = "users")
 @Entity
 @Setter
 @Getter
