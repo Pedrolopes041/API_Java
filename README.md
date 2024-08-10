@@ -6,16 +6,12 @@ Projeto em Java com framework Spring Boot para criar uma API REST, utilizando JP
 ### Informações do Projeto
 
 Nome do Projeto: API
+
 Descrição: Back end para eventos.
+
 Versão do Spring Boot: 3.3.2
+
 Versão do Java: 21
-Dependências:
-Spring Boot Starter Data JPA
-Spring Boot Starter Web
-PostgreSQL
-Lombok
-Flyway
-H2 
 
 ### Banco de Dados
 
