@@ -1,5 +1,5 @@
 # Teste back-end - API REST com Spring
-##Por Pedro Augusto
+## Por Pedro Augusto
 
 Projeto em Java com framework Spring Boot para criar uma API REST, utilizando JPA, PostgreSQL, Maven.
 
@@ -34,7 +34,9 @@ Mockito: Para criar mocks e simular comportamentos durante os testes, facilitand
 ### Execução do Projeto
 
 Importar: Importe o projeto como um projeto Maven.
+
 Atualizar Dependências: Baixe e atualize as dependências.
+
 Executar: Execute a classe principal como uma aplicação Java.
 
 ### Developer
