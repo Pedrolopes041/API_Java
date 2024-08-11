@@ -49,6 +49,21 @@ Atualizar Dependências: Baixe e atualize as dependências.
 
 Executar: Execute a classe principal como uma aplicação Java.
 
+### Arquivo de Configuração
+
+Crie o arquivo resource
+
+src/main/resources/application.properties
+
+Edite o Arquivo application.properties
+
+spring.application.name=api
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://ep-curly-firefly-a5531i12.us-east-2.aws.neon.tech/events?sslmode=require
+spring.datasource.username=events_owner
+spring.datasource.password=D6lr5GSztIqn
+spring.jpa.hibernate.ddl-auto=update
+
 ### Developer
 
 Pedro Augusto
