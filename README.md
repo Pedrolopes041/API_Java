@@ -13,6 +13,20 @@ Versão do Spring Boot: 3.3.2
 
 Versão do Java: 21
 
+### Funções da API
+
+Realizar a criação de um evento;
+
+Realizar a criação de um usuário;
+
+Realizar a operação de inscrição de um usuário em um evento;
+
+Realizar o cancelamento de uma inscrição de um usuário em um evento;
+
+Listar as inscrições de um usuário;
+
+Listar os inscritos de um evento;
+
 ### Banco de Dados
 
 Produção: A aplicação utiliza o Neon DB, um serviço de banco de dados PostgreSQL na nuvem.
