@@ -30,7 +30,6 @@ public class EventController {
         return ResponseEntity.ok(event);
     }
 
-    //falta esse
     @GetMapping("/{eventId}/users")
     public ResponseEntity<Set<User>> listUsersInEvent(@PathVariable UUID eventId) {
         Set<User> users = eventService.listUsersInEvent(eventId);

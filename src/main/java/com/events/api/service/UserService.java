@@ -17,7 +17,7 @@ public class UserService {
     private UserRepository repository;
 
     @Autowired
-    private EventService eventService; // Injetar o EventService para acessar eventos
+    private EventService eventService;
 
     public User createUser(UserRequestDTO data) {
         User newUser = new User();
@@ -28,10 +28,9 @@ public class UserService {
         return newUser;
     }
 
-    // Método para listar eventos aos quais o usuário está inscrito
     public Set<Event> listUserEvents(UUID userId) {
         return repository.findById(userId)
-                .map(User::getEventos) // Presume que User tem um método getEventos()
+                .map(User::getEventos)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
     }
 }

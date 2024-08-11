@@ -40,7 +40,6 @@ public class EventService {
             Event event = eventOpt.get();
             User user = userOpt.get();
 
-            // Verifica se o usuário já está no evento antes de adicionar
             if (!event.getUsers().contains(user)) {
                 event.getUsers().add(user);
             }
